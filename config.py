@@ -1,5 +1,5 @@
 from enum import Enum
-from data import BASE_URL, generate_registration_data
+from data.data import BASE_URL, generate_registration_data
 
 
 DOMAIN = BASE_URL
