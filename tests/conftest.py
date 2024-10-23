@@ -5,6 +5,11 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from data.data import BASE_URL
+from helpers import get_faker_user
+from page.login_page import LoginPage
+from page.order_page import OrderPage
+from page.registration_page import RegisterPage
+from config import DOMAIN
 
 
 def pytest_addoption(parser):
@@ -26,3 +31,31 @@ def open_browser(request):
     driver.maximize_window()
     yield driver
     driver.quit()
+
+    @pytest.fixture(scope="class")
+    def signup(open_browser):
+        user = get_faker_user()
+        name = user["name"]
+        email = user["email"]
+        password = user["password"]
+        register_page = RegisterPage(open_browser)
+        register_page.signup(name, email, password)
+        return {"email": email, "password": password}
+
+    @pytest.fixture
+    def login(open_browser, signup):
+        login_page = LoginPage(open_browser)
+        login_page.login(signup["email"], signup["password"])
+        return signup
+
+    @pytest.fixture(scope="class")
+    def login_user(open_browser):
+        login_page = LoginPage(open_browser)
+        login_page.login('username', 'password')
+        return login_page
+
+    @pytest.fixture
+    def open_order_page(open_browser, login_user):
+        order_page = OrderPage(open_browser)
+        order_page.open_orders_page()
+        return order_page

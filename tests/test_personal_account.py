@@ -1,3 +1,5 @@
+import pytest
+import allure
 from config import URL
 from locators.login_locators import LoginLocators
 from page.login_page import LoginPage
@@ -6,7 +8,8 @@ from page.header_page import HeaderPage
 from page.profile_account_page import ProfilePage
 
 
-class TestPersonalArea:
+@pytest.mark.usefixtures("login")
+class TestPersonalAccount:
     def test_redirect_to_personal_area_authorized_user(self, open_browser):
         header = HeaderPage(open_browser)
         personal_account = PersonalAccount(open_browser)

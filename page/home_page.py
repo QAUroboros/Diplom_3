@@ -7,6 +7,7 @@ from config import DOMAIN
 class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
+        self.locators = None
 
     @allure.step("Открытие главной страницы сайта")
     def open_home_page(self):
