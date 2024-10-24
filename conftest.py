@@ -9,10 +9,7 @@ from helpers import get_faker_user
 from page.login_page import LoginPage
 from page.order_page import OrderPage
 from page.registration_page import RegisterPage
-from config import DOMAIN
 
-
-print("Loading conftest.py")
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome",
