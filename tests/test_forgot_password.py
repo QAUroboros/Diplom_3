@@ -7,6 +7,7 @@ import allure
 
 
 class TestForgotPassword:
+
     @allure.title('Проверка перехода на страницу восстановления пароля')
     def test_page_opening_forgot_password(self, open_browser):
         login_page = LoginPage(open_browser)
