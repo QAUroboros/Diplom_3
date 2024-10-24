@@ -1,0 +1,1 @@
+Exception in is_modal_open: wait_for_element() got an unexpected keyword argument 'timeout'

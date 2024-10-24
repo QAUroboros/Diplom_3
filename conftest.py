@@ -12,6 +12,8 @@ from page.registration_page import RegisterPage
 from config import DOMAIN
 
 
+print("Loading conftest.py")
+
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome",
                      help="Browser to run tests on: chrome or firefox")

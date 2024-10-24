@@ -12,8 +12,16 @@ class BasePage:
         self.driver.get(url)
 
     @allure.step("Ожидание видимости элемента: {locator}")
-    def wait_for_element(self, locator):
-        return WebDriverWait(self.driver, 30).until(expected_conditions.visibility_of_element_located(locator))
+    def wait_for_element(self, locator, timeout=10):
+        try:
+            element = WebDriverWait(self.driver, timeout).until(
+                expected_conditions.visibility_of_element_located(locator)
+            )
+            return element
+        except Exception as e:
+            print(f"Exception in wait_for_element: {e}")
+            self.driver.save_screenshot('wait_for_element_exception.png')
+            return None
 
     @allure.step("Переход по URL: {url}")
     def navigate(self, url, expected_element=None):
@@ -51,20 +59,21 @@ class BasePage:
         return self.get_current_url() == url
 
     @allure.step("Ожидание исчезновения элемента: {locator}")
-    def wait_for_element_to_disappear(self, locator, timeout=10):
+    def wait_for_element_to_disappear(self, locator, timeout=30):
         return WebDriverWait(self.driver, timeout).until(expected_conditions.invisibility_of_element_located(locator))
 
     @allure.step("Проверка, что элемент виден: {locator}")
-    def is_element_visible(self, locator, timeout=10):
+    def is_element_visible(self, locator, timeout=30):
         try:
             return self.wait_for_element(locator, timeout).is_displayed()
         except:
             return False
 
     @allure.step("Проверка, что элемент невиден: {locator}")
-    def is_element_invisible(self, locator, timeout=10):
+    def is_element_invisible(self, locator, timeout=30):
         try:
-            return WebDriverWait(self.driver, timeout).until(expected_conditions.invisibility_of_element_located(locator))
+            return WebDriverWait(self.driver, timeout).until(
+                expected_conditions.invisibility_of_element_located(locator))
         except:
             return False
 

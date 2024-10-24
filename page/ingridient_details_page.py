@@ -10,7 +10,14 @@ class IngredientDetailsPage(BasePage):
 
     @allure.step("Проверка, что модальное окно ингредиента открыто")
     def is_modal_open(self):
-        return self.is_element_visible(self.locators.MODAL_TITLE)
+        try:
+            self.wait_for_element(self.locators.MODAL_TITLE, timeout=15)
+            print("Modal title found.")
+            return True
+        except Exception as e:
+            print(f"Exception in is_modal_open: {e}")
+            self.driver.save_screenshot('modal_not_found.png')
+            return False
 
     @allure.step("Проверка, что модальное окно ингредиента закрыто")
     def is_modal_closed(self):

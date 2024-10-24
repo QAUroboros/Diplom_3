@@ -7,7 +7,7 @@ from config import DOMAIN
 class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.locators = None
+        self.locators = HomePageLocators()
 
     @allure.step("Открытие главной страницы сайта")
     def open_home_page(self):
@@ -23,7 +23,15 @@ class HomePage(BasePage):
 
     @allure.step("Клик по флуоресцентной булочке")
     def click_fluorescent_bun(self):
-        self.action_click(HomePageLocators.BUN_FLUORESCENT)
+        try:
+            element = self.wait_for_element(self.locators.FLUORESCENT_BUN, timeout=15)
+            self.driver.execute_script("arguments[0].scrollIntoView();", element)
+            element.click()
+            print("Clicked on fluorescent bun")
+        except Exception as e:
+            print(f"Exception in click_fluorescent_bun: {e}")
+            self.driver.save_screenshot('click_fluorescent_bun_exception.png')
+            raise
 
     @allure.step("Получение имени флуоресцентной булочки")
     def get_fluorescent_bun_name(self):
