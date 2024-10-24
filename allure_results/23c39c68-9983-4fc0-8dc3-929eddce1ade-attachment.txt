@@ -1,0 +1,43 @@
+Exception in wait_for_element: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000104f6f634 cxxbridge1$str$ptr + 3645404
+1   chromedriver                        0x0000000104f67e94 cxxbridge1$str$ptr + 3614780
+2   chromedriver                        0x00000001049d4104 cxxbridge1$string$len + 88416
+3   chromedriver                        0x0000000104a16364 cxxbridge1$string$len + 359360
+4   chromedriver                        0x0000000104a4fbd0 cxxbridge1$string$len + 594988
+5   chromedriver                        0x0000000104a0af54 cxxbridge1$string$len + 313264
+6   chromedriver                        0x0000000104a0bba4 cxxbridge1$string$len + 316416
+7   chromedriver                        0x0000000104f3a1d4 cxxbridge1$str$ptr + 3427196
+8   chromedriver                        0x0000000104f3d518 cxxbridge1$str$ptr + 3440320
+9   chromedriver                        0x0000000104f215f8 cxxbridge1$str$ptr + 3325856
+10  chromedriver                        0x0000000104f3dddc cxxbridge1$str$ptr + 3442564
+11  chromedriver                        0x0000000104f1287c cxxbridge1$str$ptr + 3265060
+12  chromedriver                        0x0000000104f58884 cxxbridge1$str$ptr + 3551788
+13  chromedriver                        0x0000000104f58a00 cxxbridge1$str$ptr + 3552168
+14  chromedriver                        0x0000000104f67b2c cxxbridge1$str$ptr + 3613908
+15  libsystem_pthread.dylib             0x0000000192c132e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000192c0e0fc thread_start + 8
+
+Exception in wait_for_element: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=130.0.6723.69)
+Stacktrace:
+0   chromedriver                        0x0000000104f6f634 cxxbridge1$str$ptr + 3645404
+1   chromedriver                        0x0000000104f67e94 cxxbridge1$str$ptr + 3614780
+2   chromedriver                        0x00000001049d4104 cxxbridge1$string$len + 88416
+3   chromedriver                        0x00000001049afb70 core::str::slice_error_fail::h1cab30ac4b13c655 + 3792
+4   chromedriver                        0x0000000104a3c66c cxxbridge1$string$len + 515784
+5   chromedriver                        0x0000000104a4f638 cxxbridge1$string$len + 593556
+6   chromedriver                        0x0000000104a0af54 cxxbridge1$string$len + 313264
+7   chromedriver                        0x0000000104a0bba4 cxxbridge1$string$len + 316416
+8   chromedriver                        0x0000000104f3a1d4 cxxbridge1$str$ptr + 3427196
+9   chromedriver                        0x0000000104f3d518 cxxbridge1$str$ptr + 3440320
+10  chromedriver                        0x0000000104f215f8 cxxbridge1$str$ptr + 3325856
+11  chromedriver                        0x0000000104f3dddc cxxbridge1$str$ptr + 3442564
+12  chromedriver                        0x0000000104f1287c cxxbridge1$str$ptr + 3265060
+13  chromedriver                        0x0000000104f58884 cxxbridge1$str$ptr + 3551788
+14  chromedriver                        0x0000000104f58a00 cxxbridge1$str$ptr + 3552168
+15  chromedriver                        0x0000000104f67b2c cxxbridge1$str$ptr + 3613908
+16  libsystem_pthread.dylib             0x0000000192c132e4 _pthread_start + 136
+17  libsystem_pthread.dylib             0x0000000192c0e0fc thread_start + 8
+

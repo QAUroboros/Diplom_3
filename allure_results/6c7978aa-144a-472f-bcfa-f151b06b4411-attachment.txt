@@ -1,0 +1,40 @@
+Exception in wait_for_element: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001007df634 cxxbridge1$str$ptr + 3645404
+1   chromedriver                        0x00000001007d7e94 cxxbridge1$str$ptr + 3614780
+2   chromedriver                        0x0000000100244104 cxxbridge1$string$len + 88416
+3   chromedriver                        0x0000000100286364 cxxbridge1$string$len + 359360
+4   chromedriver                        0x00000001002bfbd0 cxxbridge1$string$len + 594988
+5   chromedriver                        0x000000010027af54 cxxbridge1$string$len + 313264
+6   chromedriver                        0x000000010027bba4 cxxbridge1$string$len + 316416
+7   chromedriver                        0x00000001007aa1d4 cxxbridge1$str$ptr + 3427196
+8   chromedriver                        0x00000001007ad518 cxxbridge1$str$ptr + 3440320
+9   chromedriver                        0x00000001007915f8 cxxbridge1$str$ptr + 3325856
+10  chromedriver                        0x00000001007adddc cxxbridge1$str$ptr + 3442564
+11  chromedriver                        0x000000010078287c cxxbridge1$str$ptr + 3265060
+12  chromedriver                        0x00000001007c8884 cxxbridge1$str$ptr + 3551788
+13  chromedriver                        0x00000001007c8a00 cxxbridge1$str$ptr + 3552168
+14  chromedriver                        0x00000001007d7b2c cxxbridge1$str$ptr + 3613908
+15  libsystem_pthread.dylib             0x0000000192c132e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000192c0e0fc thread_start + 8
+
+Exception in wait_for_element: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001007df634 cxxbridge1$str$ptr + 3645404
+1   chromedriver                        0x00000001007d7e94 cxxbridge1$str$ptr + 3614780
+2   chromedriver                        0x0000000100244104 cxxbridge1$string$len + 88416
+3   chromedriver                        0x0000000100286364 cxxbridge1$string$len + 359360
+4   chromedriver                        0x00000001002bfbd0 cxxbridge1$string$len + 594988
+5   chromedriver                        0x000000010027af54 cxxbridge1$string$len + 313264
+6   chromedriver                        0x000000010027bba4 cxxbridge1$string$len + 316416
+7   chromedriver                        0x00000001007aa1d4 cxxbridge1$str$ptr + 3427196
+8   chromedriver                        0x00000001007ad518 cxxbridge1$str$ptr + 3440320
+9   chromedriver                        0x00000001007915f8 cxxbridge1$str$ptr + 3325856
+10  chromedriver                        0x00000001007adddc cxxbridge1$str$ptr + 3442564
+11  chromedriver                        0x000000010078287c cxxbridge1$str$ptr + 3265060
+12  chromedriver                        0x00000001007c8884 cxxbridge1$str$ptr + 3551788
+13  chromedriver                        0x00000001007c8a00 cxxbridge1$str$ptr + 3552168
+14  chromedriver                        0x00000001007d7b2c cxxbridge1$str$ptr + 3613908
+15  libsystem_pthread.dylib             0x0000000192c132e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000192c0e0fc thread_start + 8
+

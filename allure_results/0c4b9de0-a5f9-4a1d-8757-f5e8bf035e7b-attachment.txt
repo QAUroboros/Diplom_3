@@ -1,0 +1,20 @@
+Exception in wait_for_element: Message: 
+Stacktrace:
+0   chromedriver                        0x000000010536b634 cxxbridge1$str$ptr + 3645404
+1   chromedriver                        0x0000000105363e94 cxxbridge1$str$ptr + 3614780
+2   chromedriver                        0x0000000104dd0104 cxxbridge1$string$len + 88416
+3   chromedriver                        0x0000000104e12364 cxxbridge1$string$len + 359360
+4   chromedriver                        0x0000000104e4bbd0 cxxbridge1$string$len + 594988
+5   chromedriver                        0x0000000104e06f54 cxxbridge1$string$len + 313264
+6   chromedriver                        0x0000000104e07ba4 cxxbridge1$string$len + 316416
+7   chromedriver                        0x00000001053361d4 cxxbridge1$str$ptr + 3427196
+8   chromedriver                        0x0000000105339518 cxxbridge1$str$ptr + 3440320
+9   chromedriver                        0x000000010531d5f8 cxxbridge1$str$ptr + 3325856
+10  chromedriver                        0x0000000105339ddc cxxbridge1$str$ptr + 3442564
+11  chromedriver                        0x000000010530e87c cxxbridge1$str$ptr + 3265060
+12  chromedriver                        0x0000000105354884 cxxbridge1$str$ptr + 3551788
+13  chromedriver                        0x0000000105354a00 cxxbridge1$str$ptr + 3552168
+14  chromedriver                        0x0000000105363b2c cxxbridge1$str$ptr + 3613908
+15  libsystem_pthread.dylib             0x0000000192c132e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000192c0e0fc thread_start + 8
+
