@@ -9,7 +9,6 @@ class IngredientPage(BasePage):
 
     @allure.step("Добавление ингредиента 'Флюоресцентный бургер' в конструктор")
     def add_ingredient(self):
-
         ingredient = self.wait_for_element(IngredientBunLocators.INGREDIENT_MODAL)
         ingredient.click()
 
@@ -17,3 +16,7 @@ class IngredientPage(BasePage):
     def is_counter_increased(self):
         counter = self.wait_for_element(IngredientBunLocators.COUNTER_LOCATOR)
         return int(counter.text) > 0
+
+    @allure.step("Открытие домашней страницы")
+    def open_home_page(self,base_url):
+        self.navigate(base_url)

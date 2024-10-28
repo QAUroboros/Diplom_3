@@ -19,7 +19,7 @@ class OrderPage(BasePage):
 
     @allure.step("Открытие страницы 'Лента заказов'")
     def open_orders_page(self):
-        self.navigate_to_page(self.locators.ORDERS_PAGE)
+        self.navigate(self.locators.ORDERS_PAGE)
 
     @allure.step("Клик по номеру заказа")
     def click_order(self):

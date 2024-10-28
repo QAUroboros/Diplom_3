@@ -13,6 +13,7 @@ class TestOrderFlow:
     @allure.title("Увеличение счётчика ингредиента при добавлении в заказ")
     def test_ingredient_counter_increases_after_addition(self, open_browser):
         ingredient_page = IngredientPage(open_browser)
+        ingredient_page.open_home_page()
         ingredient_page.add_ingredient()
         assert ingredient_page.is_counter_increased(), "Счётчик ингредиента не увеличился после добавления"
 
