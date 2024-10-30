@@ -2,7 +2,6 @@ from page.login_page import LoginPage
 from config import URL
 from page.forgot_password_page import ForgotPasswordPage
 from page.resset_password_page import ResetPasswordPage
-from locators.forgot_password_locators import ForgotPasswordBurger
 import allure
 
 
@@ -21,7 +20,7 @@ class TestForgotPassword:
         forgot_password = ForgotPasswordPage(open_browser)
         forgot_password.open_forgot_password_page()
         forgot_password.enter_email("test@example.com")
-        forgot_password.wait_for_element(ForgotPasswordBurger.BUTTON_RESTORE_PASSWORD)
+        forgot_password.wait_for_restore_password_button(timeout=15)  # Используем метод класса страницы
         forgot_password.click_button_restore_password()
         forgot_password.wait_for_url(URL.PASSWORD_CHANGE.value, timeout=30)
         url = open_browser.current_url
@@ -33,7 +32,7 @@ class TestForgotPassword:
         reset_password = ResetPasswordPage(open_browser)
         forgot_password.open_forgot_password_page()
         forgot_password.enter_email("test@example.com")
-        forgot_password.wait_for_element(ForgotPasswordBurger.BUTTON_RESTORE_PASSWORD)
+        forgot_password.wait_for_restore_password_button(timeout=15)  # Используем метод класса страницы
         forgot_password.click_button_restore_password()
         forgot_password.wait_for_url(URL.PASSWORD_CHANGE.value)
         reset_password.enter_password()
