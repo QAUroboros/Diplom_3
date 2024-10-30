@@ -1,0 +1,45 @@
+# Директория виртуального окружения Python
+venv/
+.env/
+
+# Кеш и временные файлы Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.eggs
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Настройки IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Конфигурации окружения
+*.env
+
+# Отчеты Allure и покрытия тестов
+htmlcov/
+.coverage
+
+# Файлы, создаваемые во время разработки
+*.bak
+*.swp
+
+# Файлы сборки и компиляции
+build/
+dist/
+*.egg
+
+# Файлы репозитория, которые могут быть специфичными для системы или IDE
+*.iml
+.gradle
+*.png
