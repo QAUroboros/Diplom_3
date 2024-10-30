@@ -36,15 +36,17 @@ class BasePage:
     @allure.step("Ввод текста: {text} в элемент {locator}")
     def enter_text(self, locator, text):
         element = self.wait_for_element(locator)
-        element.clear()
-        element.send_keys(text)
+        if element:
+            element.clear()
+            element.send_keys(text)
 
     @allure.step("Клик по элементу: {locator}")
     def action_click(self, locator, expected_element=None):
         element = self.wait_for_element(locator)
-        element.click()
-        if expected_element:
-            self.wait_for_element(expected_element)
+        if element:
+            element.click()
+            if expected_element:
+                self.wait_for_element(expected_element)
 
     @allure.step("Ожидание URL страницы")
     def wait_for_url(self, url, timeout=15):
@@ -65,7 +67,10 @@ class BasePage:
     @allure.step("Проверка, что элемент виден: {locator}")
     def is_element_visible(self, locator, timeout=30):
         try:
-            return self.wait_for_element(locator, timeout).is_displayed()
+            element = self.wait_for_element(locator, timeout)
+            if element:
+                return element.is_displayed()
+            return False
         except:
             return False
 
@@ -84,9 +89,29 @@ class BasePage:
     @allure.step("Очистка поля и ввод текста: {locator}")
     def clear_fields(self, locator, text):
         element = self.wait_for_element(locator)
-        element.clear()
-        element.send_keys(text)
+        if element:
+            element.clear()
+            element.send_keys(text)
 
     @allure.step("Получение текста элемента: {locator}")
     def get_element_text(self, locator):
-        return self.wait_for_element(locator).text
+        element = self.wait_for_element(locator)
+        if element:
+            return element.text
+        return ""
+
+    @allure.step("Прокрутка до элемента: {locator}")
+    def scroll_to_element(self, locator, timeout=10):
+        element = self.wait_for_element(locator, timeout)
+        if element:
+            self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        else:
+            print(f"Element to scroll to not found: {locator}")
+            self.save_screenshot('scroll_to_element_exception.png')
+
+    @allure.step("Сохранение скриншота страницы")
+    def save_screenshot(self, file_name):
+        try:
+            self.driver.save_screenshot(file_name)
+        except Exception as e:
+            print(f"Failed to save screenshot {file_name}: {e}")

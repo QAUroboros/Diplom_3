@@ -15,7 +15,10 @@ class HomePage(BasePage):
 
     @allure.step("Проверка, отображения кнопки 'Войти в аккаунт'")
     def is_login_button_displayed(self):
-        return self.wait_for_element(HomePageLocators.LOGIN_BUTTON).is_displayed()
+        element = self.wait_for_element(HomePageLocators.LOGIN_BUTTON)
+        if element:
+            return element.is_displayed()
+        return False
 
     @allure.step("Клик по кнопке 'Войти в аккаунт'")
     def click_login_button(self):
@@ -24,18 +27,20 @@ class HomePage(BasePage):
     @allure.step("Клик по флуоресцентной булочке")
     def click_fluorescent_bun(self):
         try:
-            element = self.wait_for_element(self.locators.FLUORESCENT_BUN, timeout=15)
-            self.driver.execute_script("arguments[0].scrollIntoView();", element)
-            element.click()
+            self.scroll_to_element(self.locators.FLUORESCENT_BUN, timeout=15)
+            self.action_click(self.locators.FLUORESCENT_BUN)
             print("Clicked on fluorescent bun")
         except Exception as e:
             print(f"Exception in click_fluorescent_bun: {e}")
-            self.driver.save_screenshot('click_fluorescent_bun_exception.png')
+            self.save_screenshot('click_fluorescent_bun_exception.png')
             raise
 
     @allure.step("Получение имени флуоресцентной булочки")
     def get_fluorescent_bun_name(self):
-        return self.wait_for_element(HomePageLocators.NAME_BUN_FLUORESCENT).text
+        element = self.wait_for_element(HomePageLocators.NAME_BUN_FLUORESCENT)
+        if element:
+            return element.text
+        return ""
 
     @allure.step("Клик по кнопке 'Оформить заказ'")
     def click_checkout_button(self):
